@@ -1,0 +1,152 @@
+{
+    "Records": [
+      {
+        "eventID": "c4ca4238a0b923820dcc509a6f75849b",
+        "eventName": "INSERT",
+        "eventVersion": "1.1",
+        "eventSource": "aws:dynamodb",
+        "awsRegion": "us-east-1",
+        "dynamodb": {
+          "Keys": {
+              "sortKey": {"S": "SELECTIVE_PROCESS#a58b4b12-c3be-4b6f-aeaa-3e5aa297b24a#ENROLLMENT"},
+              "partitionKey": {"S": "76db5613-2a7b-4b76-843a-5b3c9ee9b9de"}
+          },
+          "NewImage": {
+            "partitionKey": {
+              "S": "76db5613-2a7b-4b76-843a-5b3c9ee9b9de"
+            },
+            "sortKey": {
+              "S": "SELECTIVE_PROCESS#a58b4b12-c3be-4b6f-aeaa-3e5aa297b24a#ENROLLMENT"
+            },
+            "currentFase": {
+              "S": "7a362ab9-ec70-4412-b208-91a2fe08a461"
+            },
+            "cpf": {
+              "S": "107.089.727-21"
+            },
+            "uuid": {
+              "S": "76db5613-2a7b-4b76-843a-5b3c9ee9b9de"
+            },
+            "email": {
+              "S": "candidato78@test.com"
+            },
+            "name": {
+              "S": "Candidato 78"
+            },
+            "additionalInfo": {
+              "L": [
+                {
+                  "M": {
+                    "value": {
+                      "S": "candidato78@test.com"
+                    },
+                    "key": {
+                      "S": "emailConfirmation"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "value": {
+                      "S": "(99) 99999-9999"
+                    },
+                    "key": {
+                      "S": "Telefone"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "value": {
+                      "S": "00000-000"
+                    },
+                    "key": {
+                      "S": "CEP"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "value": {
+                      "S": "999999999"
+                    },
+                    "key": {
+                      "S": "RG"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "value": {
+                      "S": "10/04/1999"
+                    },
+                    "key": {
+                      "S": "Data de Nascimento"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "value": {
+                      "S": "Homem Cis"
+                    },
+                    "key": {
+                      "S": "Gênero"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "value": {
+                      "S": "Pardo"
+                    },
+                    "key": {
+                      "S": "Etnia"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "value": {
+                      "S": "Já programei um pouco seguindo tutoriais guiados"
+                    },
+                    "key": {
+                      "S": "Assinale a alternativa mais próxima ao seu conhecimento em programação*"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "value": {
+                      "S": "Não tenho (ou não estou em) formação superior"
+                    },
+                    "key": {
+                      "S": "Assinale a alternativa mais próxima com relação à sua formação*"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "value": {
+                      "S": "accepted"
+                    },
+                    "key": {
+                      "S": "privacy-policy"
+                    }
+                  }
+                }
+              ]
+            },
+            "lastModifiedAt": {
+              "S": "2021-08-31T13:50:27.523+00:00"
+            }
+          },
+          "ApproximateCreationDateTime": 1428537600,
+          "SequenceNumber": "4421584500000000017450439091",
+          "SizeBytes": 26,
+          "StreamViewType": "NEW_AND_OLD_IMAGES"
+        },
+        "eventSourceARN": "arn:aws:dynamodb:us-east-1:123456789012:table/ExampleTableWithStream/stream/2015-06-27T00:48:05.899"
+      }
+    ]
+  }
