@@ -1,0 +1,66 @@
+const stripe = Stripe('pk_test_51NzVVAIxSRA8a4sDXmaxRsQbbXiEJ418TfodxkA8sJ2gizAUPbh2QIWJrEcUv5BLEkuXyjdtLYpP4kxXBrxL5Pd600Cc0LdM0r');
+const elements = stripe.elements();
+
+// Create an instance of the card Element
+const card = elements.create('card', {
+  style: {
+    base: {
+      fontSize: '16px',
+      color: '#32325d',
+      '::placeholder': {
+        color: '#aab7c4',
+      },
+    },
+    invalid: {
+      color: '#fa755a',
+    },
+  },
+});
+card.mount('#card-element');
+
+// Handle real-time validation errors from the card Element
+card.on('change', function(event) {
+  const displayError = document.getElementById('card-errors');
+  if (event.error) {
+    displayError.textContent = event.error.message;
+  } else {
+    displayError.textContent = '';
+  }
+});
+
+// Handle form submission
+const form = document.getElementById('payment-form');
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+  
+  stripe.createPaymentMethod('card', card).then(function(result) {
+    if (result.error) {
+      // Show error in payment form
+      const displayError = document.getElementById('card-errors');
+      displayError.textContent = result.error.message;
+    } else {
+      // Print PaymentMethod ID to the console
+      console.log('PaymentMethod ID:', result.paymentMethod.id);
+
+      // Send PaymentMethod ID to your server
+      fetch('/attach-payment-method', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ paymentMethodId: result.paymentMethod.id })
+      }).then(function(response) {
+        return response.json();
+      }).then(function(responseJson) {
+        if (responseJson.error) {
+          // Show error from server
+          const displayError = document.getElementById('card-errors');
+          displayError.textContent = responseJson.error.message;
+        } else {
+          // Payment method successfully attached
+          alert('Payment method successfully attached!');
+        }
+      });
+    }
+  });
+});
